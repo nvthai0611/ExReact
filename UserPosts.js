@@ -4,6 +4,7 @@ const UserPosts = ({userId} ) => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
+      console.log('render check');
       try {
         const response = await fetch("https://jsonplaceholder.typicode.com/posts?userId=" + userId);
         if (!response.ok) {
@@ -20,6 +21,7 @@ const UserPosts = ({userId} ) => {
       fetchData();
     }
   }, [userId]);
+  console.log('re-render check');
   return (
     <div>
       {posts.map((post) => (
